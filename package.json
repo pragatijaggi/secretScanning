@@ -4,7 +4,8 @@
   "description": "Copy of the TaskTracker API package.json with a pinned vulnerable dependency, used only to trigger a real Dependabot alert for the Day 4 lab.",
   "dependencies": {
     "express": "^4.19.2",
-    "lodash": "4.17.15"
+    "lodash": "4.17.15",
+    "minimist": "0.0.8"
   },
   "license": "MIT"
 }
