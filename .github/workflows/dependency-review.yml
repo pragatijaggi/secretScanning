@@ -1,0 +1,24 @@
+# Dependency Review - runs on every PR that touches a manifest/lockfile and posts
+# a comment + check listing any newly introduced vulnerable/malicious dependencies.
+# Docs: https://github.com/actions/dependency-review-action
+name: "Dependency Review"
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pull-requests: write   # required so the action can post a summary comment
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          comment-summary-in-pr: always
